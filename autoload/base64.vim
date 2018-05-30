@@ -11,6 +11,10 @@ function! base64#decode(input)
     return system('base64 -D', a:input)
 endfunction
 
-function! base64#v(fn)
+function! base64#n(fn)
     execute "normal! ciW\<c-r>=base64#" . a:fn . "(@\")\<cr>"
+endfunction
+
+function! base64#v(fn)
+    execute "normal! `<v`>c\<c-r>=base64#" . a:fn . "(@\")\<cr>"
 endfunction
