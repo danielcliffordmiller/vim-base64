@@ -12,9 +12,15 @@ function! base64#decode(input)
 endfunction
 
 function! base64#n(fn)
+  let l:paste = &paste
+  set paste
   execute "normal! ciW\<c-r>=base64#" . a:fn . "(@\")\<cr>"
+  let &paste = l:paste
 endfunction
 
 function! base64#v(fn)
+  let l:paste = &paste
+  set paste
   execute "normal! `<v`>c\<c-r>=base64#" . a:fn . "(@\")\<cr>"
+  let &paste = l:paste
 endfunction
